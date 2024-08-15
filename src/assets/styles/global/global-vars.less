@@ -1,0 +1,257 @@
+@mainBgc: rgb(48, 49, 52);
+@menuBgc: rgb(55, 56, 60);
+.t-main {
+  color: rgb(215, 215, 216);
+}
+.t-sub-main {
+  color: rgb(141, 141, 143);
+}
+.f-r(@val) {
+  flex: @val;
+  min-width: @val * 10%;
+  max-width: @val * 10%;
+}
+
+.f-c(@val) {
+  flex: @val;
+  min-height: @val * 10%;
+  max-height: @val * 10%;
+}
+.f-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.line-height(@height) {
+  height: @height * 1px;
+  line-height: @height * 1px;
+}
+
+.f-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.font-title {
+}
+
+.text-overflow(@row:1) {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical; //设置伸缩盒子对象的子元素的排列方式
+  -webkit-line-clamp: @row; //设置 块元素包含的文本行数
+}
+
+.full {
+  width: 100%;
+  height: 100%;
+}
+
+.poa-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.por-center {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.column-center {
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+}
+.row-center {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+.flex-column-center {
+  display: flex;
+  align-items: center;
+}
+.flex-row-center {
+  display: flex;
+  justify-content: center;
+}
+
+.not-world-selectable {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.flex-center {
+  .flex-column-center;
+  .flex-row-center;
+}
+.w {
+  width: 100%;
+}
+.h {
+  height: 100%;
+}
+.full {
+  .w;
+  .h;
+}
+.full-screen {
+  width: 100vw;
+  height: 100vh;
+}
+
+div {
+  box-sizing: border-box;
+}
+
+.flex-row(@number,@bfb) {
+  flex: @number;
+  min-width: @bfb;
+  max-width: @bfb;
+  width: @bfb;
+}
+
+.flex-column(@number,@bfbNumber) {
+  flex: @number;
+  min-height: @bfbNumber;
+  max-height: @bfbNumber;
+  height: @bfbNumber;
+}
+
+.not_line_input {
+  .full;
+  outline: none;
+  border: 0 solid #000;
+  transition: all 0.3s;
+  border-radius: 5px;
+  // background-color: #eee;
+  &:hover {
+    background-color: #ccc;
+  }
+}
+
+img {
+  width: 80%;
+  height: 80%;
+}
+
+#app {
+  .full-screen;
+  overflow: hidden;
+}
+
+a {
+  outline: none;
+  color: black;
+  text-decoration: none;
+}
+
+.iconfont {
+  cursor: pointer;
+}
+
+@mColor: rgb(255, 255, 255);
+
+@mBgc: rgb(247, 247, 247);
+
+@mActive: rgb(242, 251, 255);
+
+@active2: rgb(27, 154, 238);
+.mBorder {
+  border-bottom: 1px solid rgb(229, 229, 229);
+}
+.subBorder {
+  border-bottom: 1px solid #ddd;
+}
+.cover {
+  img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+  }
+}
+
+.flex-c {
+  display: flex;
+  flex-direction: column;
+}
+
+.text-overflow {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.mBox {
+  border-radius: 10px;
+  background-color: @mColor;
+  overflow: hidden;
+  .shadow_2;
+}
+.subBox {
+  border-radius: 10px;
+  background-color: @mColor;
+  overflow: hidden;
+  transition: all 0.3s;
+  &:hover {
+    background-color: @mActive;
+  }
+}
+// a- active
+.aSubBox {
+  border-radius: 10px;
+  background-color: @mActive;
+  overflow: hidden;
+}
+
+.shadow_1 {
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.shadow_2 {
+  box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 12px;
+}
+
+.dis {
+  cursor: not-allowed !important;
+}
+
+.n-config-provider {
+  .full;
+}
+
+input {
+  padding: 2px 4px;
+  font-size: 12px;
+  height: 24px;
+  width: 72px;
+  border-radius: 4px;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 0px 0px 0px !important;
+  background-color: #fff;
+
+  color: rgba(255, 255, 255, 1);
+  border: 1px solid rgba(0, 0, 0, 0);
+}
+input:focus-visible {
+  border: 1px solid #ccc;
+  caret-color: #0085bd;
+  outline: none;
+}
+
+.fullImg {
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+.box(@num) {
+  width: @num * 1px;
+  height: @num * 1px;
+}

@@ -1,27 +1,11 @@
-import { createMemoryHistory, createRouter } from 'vue-router'
+import { RouteRecordRaw, createRouter, createWebHashHistory } from 'vue-router';
+import { routerMap } from '../constant';
 
-const routes = [
-  {
-    path: '/',
-    redirect: '/home',
-    children: [
-      {
-        path: 'home',
-        name: 'home',
-        component: () => import('@/pages/home.vue'),
-      },
-      {
-        path: 'settings',
-        name: 'settings',
-        component: () => import('@/pages/settings.vue'),
-      },
-    ],
-  },
-]
+const routes: RouteRecordRaw[] = routerMap;
 
 const router = createRouter({
-  history: createMemoryHistory(),
-  routes,
-})
+  history: createWebHashHistory(), // 只能用hash模式
+  routes
+});
 
-export default router
+export default router;

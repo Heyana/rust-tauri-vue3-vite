@@ -1,42 +1,55 @@
 {
-  "compilerOptions": {
-    "target": "ES2020",
-    "jsx": "preserve",
-    "lib": [
-      "ES2020",
-      "DOM",
-      "DOM.Iterable"
-    ],
-    "useDefineForClassFields": true,
-    "baseUrl": ".",
-    "module": "ESNext",
-    /* Bundler mode */
-    "moduleResolution": "bundler",
-    "paths": {
-      "@/*": [
-        "./src/*"
-      ]
+    "compileOnSave": true,
+    "compilerOptions": {
+        "jsx": "preserve",
+        "target": "ESNext",
+        "module": "CommonJS",
+        "sourceMap": false,
+        "outDir": "./dist",
+        "declaration": true,
+        "allowJs": true,
+        "baseUrl": "./",
+        "paths": {
+            "@/*": [
+                "./*"
+            ],
+            "~/*": [
+                "electron/*"
+            ],
+        },
+        "lib": [
+            "esnext",
+            "dom",
+        ],
+        "types": [
+            "vite/client",
+            "node"
+        ],
+        "typeRoots": [
+            "node_modules/@types",
+            "./typings"
+        ],
+        "strict": true,
+        "noUnusedLocals": true,
+        "noImplicitReturns": true,
+        "moduleResolution": "node",
+        "esModuleInterop": true,
+        "noImplicitAny": false,
+        "allowSyntheticDefaultImports": true,
+        "plugins": [
+            {
+                "name": "@vuedx/typescript-plugin-vue"
+            }
+        ],
     },
-    "resolveJsonModule": true,
-    "allowImportingTsExtensions": true,
-    /* Linting */
-    "strict": true,
-    "noFallthroughCasesInSwitch": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "noEmit": true,
-    "isolatedModules": true,
-    "skipLibCheck": true
-  },
-  "references": [
-    {
-      "path": "./tsconfig.node.json"
-    }
-  ],
-  "include": [
-    "src/**/*.ts",
-    "src/**/*.d.ts",
-    "src/**/*.tsx",
-    "src/**/*.vue"
-  ]
+    "include": [
+        "src",
+        "main",
+        "src/utils",
+        "typings"
+    ],
+    "exclude": [
+        "**/*.js",
+        "**/*.vue"
+    ]
 }

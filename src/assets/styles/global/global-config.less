@@ -1,0 +1,37 @@
+div {
+  color: @text_color_dark;
+}
+
+// --n-fill-color: #fff;
+
+/* 定义滚动条的样式 */
+::-webkit-scrollbar-horizontal {
+  height: 7px;
+}
+
+::-webkit-scrollbar {
+  position: fixed;
+  border-radius: 5px;
+  cursor: pointer;
+
+  width: 7px; /* 设置滚动条的宽度 */
+}
+
+// ::-webkit-scrollbar:hover {
+//   width: 14px; /* 设置滚动条的宽度 */
+// }
+::-webkit-scrollbar-track {
+  border-radius: 5px;
+  cursor: pointer;
+  background: rgba(67, 68, 72, 0.1);
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background: rgba(167, 168, 172, 0.8); /* 设置滚动条滑块的背景色 */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  // width: 10px; /* 设置滚动条的宽度 */
+  background: rgba(100, 100, 100, 1);
+}

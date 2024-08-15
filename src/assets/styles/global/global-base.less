@@ -1,0 +1,59 @@
+html,
+body,
+#app {
+  width: 100vw;
+  height: 100vh;
+  font-size: 16px;
+  overflow: hidden;
+
+  // background-color: @menuBgc;
+}
+img {
+  width: 100%;
+  border-radius: 5px;
+}
+
+div {
+  box-sizing: border-box;
+  font-family: 'PingFang SC';
+  font-style: normal;
+  font-size: 0.9rem;
+  color: @text_color_dark;
+}
+
+input {
+  .input-style;
+}
+.input-style {
+  outline: none;
+  border-width: 0;
+  width: 100%;
+  height: 100%;
+  padding-left: 10px;
+  background-color: rgb(237, 239, 246);
+  color: #000;
+  line-height: 30px;
+  min-height: 30px;
+  border-radius: 5px;
+  padding: 0;
+  padding-left: 10px;
+  box-sizing: border-box;
+  word-break: break-all;
+  border: 0;
+}
+
+.input-text {
+  .input-style;
+}
+textarea {
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  resize: none;
+}
+
+input:focus {
+  // outline: none;
+  border: none; /* 如果需要，也可以移除普通状态下的边框 */
+  // box-shadow: none; /* 有时浏览器的默认聚焦样式也包括box-shadow，所以也可以移除它 */
+}

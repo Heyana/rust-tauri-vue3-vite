@@ -4,7 +4,7 @@
   "identifier": "com.github.tauriv2-vue-desktop-starter",
   "build": {
     "beforeDevCommand": "pnpm vite:dev",
-    "devUrl": "http://localhost:1420",
+    "devUrl": "http://localhost:2333",
     "beforeBuildCommand": "pnpm vite:build",
     "frontendDist": "../dist"
   },

@@ -1,45 +1,50 @@
-import path from 'node:path'
-import { defineConfig } from 'vite'
-import vue from '@vitejs/plugin-vue'
-import { internalIpV4 } from 'internal-ip'
-import tailwind from 'tailwindcss'
-import autoprefixer from 'autoprefixer'
+import { defineConfig } from "vite";
+import vue from "@vitejs/plugin-vue";
+import vueJsx from "@vitejs/plugin-vue-jsx";
+import path, { join, resolve } from "path";
+import requireTransform from "vite-plugin-require-transform";
+const staticPath = resolve(__dirname, "static");
+export default defineConfig(() => {
+  return {
+    plugins: [
+      vue(), // 开启 Vue 支持
+      vueJsx(),
+      requireTransform({ fileRegex: /.ts$|.vue$|.png$|.tsx$|.jpg$/ }),
+    ],
+    resolve: {
+      alias: {
+        "@/src": join(__dirname, "./src"),
+        "@/utils": join(__dirname, "./utils"),
+      },
+    },
+    root: join(__dirname, "src"), // 指向渲染进程目录
+    base: "./", // index.html 中静态资源加载位置
+    assetsDir: "assets",
+    server: {
+      port: 2333,
+    },
+    build: {
+      outDir: join(__dirname, "dist"),
+      assetsDir: "./assets", // 相对路径 加载问题
+      emptyOutDir: true,
+    },
+    define: {
+      "process.env": {
+        NODE_ENV: "development",
+      },
+    },
+    publicDir: staticPath,
 
-// @ts-expect-error process is a nodejs global
-const mobile = !!/android|ios/.exec(process.env.TAURI_ENV_PLATFORM)
-
-// https://vitejs.dev/config/
-export default defineConfig(async () => ({
-  css: {
-    postcss: {
-      plugins: [tailwind(), autoprefixer()],
+    css: {
+      preprocessorOptions: {
+        less: {
+          javascriptEnabled: true,
+          additionalData: `@import "${path.resolve(
+            __dirname,
+            "./src/assets/styles/global/global.less"
+          )}";`,
+        },
+      },
     },
-  },
-  plugins: [vue()],
-  resolve: {
-    alias: {
-      '@': path.resolve(__dirname, './src'),
-    },
-  },
-  // Vite options tailored for Tauri development and only applied in `tauri dev` or `tauri build`
-  //
-  // 1. prevent vite from obscuring rust errors
-  clearScreen: false,
-  // 2. tauri expects a fixed port, fail if that port is not available
-  server: {
-    port: 1420,
-    strictPort: true,
-    host: mobile ? '0.0.0.0' : false,
-    hmr: mobile
-      ? {
-          protocol: 'ws',
-          host: await internalIpV4(),
-          port: 1421,
-        }
-      : undefined,
-    watch: {
-      // 3. tell vite to ignore watching `src-tauri`
-      ignored: ['**/src-tauri/**'],
-    },
-  },
-}))
+  };
+});

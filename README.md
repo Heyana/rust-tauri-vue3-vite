@@ -1,76 +1,45 @@
-# tauriv2-vue-desktop-starter
+# Svelte SPA .NET
 
-A desktop application starter using the libraries and technologies:
+Easily create .NET applications powered by Svelte and webview2.
 
-- Rust
+## Technologies used
 
-  - [Tauri v2](https://beta.tauri.app/start/) as the desktop application framework.
-  - [Tauri Store Plugin](https://v2.tauri.app/plugin/store/) for persistence.
+-   `svelte` for rapid UI development.
+-   `vite` for modern DX and bundling.
+-   `.NET` for bridge between web UI and your machine.
+-   `webview2` for light weight browser interface.
+-   `tailwindcss` for simple and efficient styling.
+-   `svelte-pathfinder` for in-memory routing.
+-   `vite-plugin-singlefile` for building a single output HTML file that can be easily embedded into the .NET app.
+-   `prettier` for consistent code formatting.
 
-- Vue.js 3
-  - [Shadcn Vue + Tailwind CSS](https://www.shadcn-vue.com/) for components.
-  - [Vue Router](https://router.vuejs.org/) for application routing.
-  - [Vue I18n](https://vue-i18n.intlify.dev/) for internationalization.
-  - [Pinia](https://vue-i18n.intlify.dev/) for state management.
+## Why I built this
 
-## Recommended IDE Setup
+I don't have time to learn rust to use tauri.
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) + [Tauri](https://marketplace.visualstudio.com/items?itemName=tauri-apps.tauri-vscode) + [rust-analyzer](https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer)
-
-## Prerequisites
-
-Follow [Tauri's prerequisites guide](https://v2.tauri.app/start/prerequisites/) to setup your development environment.
-
-Then rename all instances of `tauriv2-vue-desktop-starter` and `tauriv2_vue_desktop_starter` to your app name.
-
-If you want to replace the package manager update:
-
-- The build configuration in [tauri.conf.json](./src-tauri/tauri.conf.json)
-- Update the following steps in [.github/workflows/publish-to-auto-release.yml](.github/workflows/publish-to-auto-release.yml):
-  - Install pnpm
-  - Install Node.js
-  - Install frontend dependencies
-- Update the following steps in [.github/workflows/test-build-only.yml](.github/workflows/test-build-only.yml):
-  - Install pnpm
-  - Install Node.js
-  - Install frontend dependencies
+---
 
 ## Installation
 
-Install dependencies with `pnpm install`
+Click on `use this template` above to clone the repo to your github, then
 
-## Development
-
-For **Desktop** development, run: `pnpm tauri dev`
-
-### Internationalization (i18n)
-
-[Vue I18n](https://vue-i18n.intlify.dev/)
-
-#### Adding a new language
-
-Create a new JSON file in the [locales](./src/i18n/locales/) directory with the appropriate translations and the locale as the filename.
-
-Then update the `supportedLanguages` function in [lib/config.ts](./src/lib/config.ts) to include the new language.
-
-### Helpful Tips
-
-Tauri Store Plugin stores `settings.json` at:
-
-**macOS**: `~/Library/Application Support/com.github.tauriv2-vue-desktop-starter`
-
-## Deployment & Release
-
-[Tauri v1 Deployment Guide](https://tauri.app/v1/guides/distribution/publishing)
-
-To build a binary, run:
-
-```bash
-pnpm tauri build
+```
+bun install
+bun dev
 ```
 
-This repo is currently setup to create a release on Github when you merge to the `release` branch. See [https://github.com/tauri-apps/tauri-action/tree/dev](https://github.com/tauri-apps/tauri-action/tree/dev).
+---
 
-### Caveats
+## Scripts
 
-If you are using the [signing identity](./src-tauri/tauri.conf.json#L32) `-` for **macOS**, when you first download and run the application, you will have to go to `System Settings` > `Privacy & Security` and allow your app to run. See [tauri-apps/tauri-action/issues/824](https://github.com/tauri-apps/tauri-action/issues/824) & [support.apple.com/open-a-mac-app-from-an-unidentified-developer](https://support.apple.com/guide/mac-help/open-a-mac-app-from-an-unidentified-developer-mh40616/mac).
+### Start a development server
+
+this will run vite dev server and .NET app in debug mode
+
+`bun dev`
+
+### Build the application and create the .NET app
+
+this will build vite app into single html file then copy it to `csharp/wwwroot` then publish the .NET app in `csharp/publish/win-x64`
+
+`bun run build`

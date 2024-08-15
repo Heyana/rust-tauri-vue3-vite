@@ -1,0 +1,349 @@
+.bt_gradient {
+  width: 108px;
+  height: 32px;
+  padding: 0px 16px;
+  border-radius: 8px;
+  background: linear-gradient(92deg, #26d682 1.9%, #246cf9 94.14%), rgba(255, 255, 255, 0.15);
+  box-shadow: 0px -1px 0px 0px rgba(255, 255, 255, 0.05) inset;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  img {
+    width: 16px;
+    height: 16px;
+  }
+  p {
+    color: #fff;
+    font-family: Source Han Sans CN;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+}
+
+.l_r {
+  display: flex;
+  justify-content: space-between;
+}
+
+.alpha_button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  &:hover {
+    background: rgba(255, 255, 255, 0.3);
+  }
+}
+
+.title {
+  font-size: 1.2rem;
+}
+
+.text_box {
+  height: 35px;
+  line-height: 35px;
+  padding: 5px;
+}
+
+.border {
+  .w;
+  margin: 10px 0;
+  height: 1px;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.text_box_min {
+  height: 20px;
+  line-height: 20px;
+  padding: 5px;
+}
+
+.area(@radius: 8) {
+  // background-color: rgba(0, 0, 0, 0.05);
+  padding: 5px;
+  margin: 10px 0;
+  border-radius: @radius * 1px;
+}
+
+.area_hover(@radius: 8) {
+  .area(@radius);
+  cursor: pointer;
+  transition: all 0.1s;
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+}
+.active_text {
+  color: @text_color_active;
+}
+.active_bg {
+  background-color: @active_color;
+}
+.active_box {
+  .active_bg;
+  div {
+    .active_text;
+  }
+}
+
+.active_box_hover {
+  .active_box;
+  &:hover {
+    div {
+      color: @text_hover_active;
+    }
+    background-color: @hover_color;
+  }
+}
+.only_active_text {
+  color: @active_color;
+}
+//
+
+.main_box {
+  background-color: @main_color;
+  border-radius: 8px;
+  padding: 5px 10px;
+}
+
+//
+.k_v {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.l_r {
+  .k_v;
+}
+
+.r {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.title {
+  height: 40px;
+}
+
+.f3_7 {
+  div {
+    flex: 3;
+  }
+  div:last-child {
+    flex: 7;
+  }
+}
+.f2_8 {
+  div {
+    flex: 2;
+  }
+  div:last-child {
+    flex: 8;
+  }
+}
+
+.f_d {
+  display: flex;
+  flex-direction: column;
+}
+.f_c {
+  display: flex;
+  flex-direction: column;
+}
+
+.f {
+  display: flex;
+}
+.gap10 {
+  .f;
+  gap: 10px;
+}
+.gap20 {
+  .f;
+  gap: 20px;
+}
+.h(@px) {
+  height: @px * 1px;
+  line-height: @px * 1px;
+}
+
+.f_center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.f_c_center {
+  display: flex;
+  align-items: center;
+}
+
+.f_r_center {
+  display: flex;
+  justify-content: center;
+}
+
+.loop(@i,@n,@j) when (@i > 0) {
+  .@{n}@{i} {
+    @{j}: @i * 10px; // 每个类名的宽度是10px递增
+  }
+  // 递归调用，直到@i为0
+  .loop(@i - 10, @n, @j);
+}
+
+// 初始调用，从10开始到100
+.loop(100, w, width);
+.loop(100, h, height);
+
+// .loop(100, h);
+
+// .loop(@i) when (@i > 0) {
+//   .h@{i} {
+//     width: @i * 10px; // 每个类名的宽度是10px递增
+//   }
+//   // 递归调用，直到@i为0
+//   .loop(@i - 10);
+// }
+
+// // 初始调用，从10开始到100
+// .loop(100);
+
+.center {
+  margin: 0 auto;
+}
+
+.f-c {
+  display: flex;
+  flex-direction: column;
+}
+
+.kv {
+  .k_v;
+}
+.lr {
+  .k_v;
+}
+
+.btn {
+  padding: 5px 10px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 5px;
+  cursor: pointer;
+  // color: #fff;
+  transition: all 0.3s;
+  &:hover {
+    .btn_hover;
+  }
+}
+.btn_atv {
+  background-color: @active_color;
+  color: #fff;
+}
+.btn_hover {
+  background-color: @hover_color;
+  color: #fff;
+}
+
+.pa {
+  position: absolute;
+  z-index: 3;
+}
+.scale4 {
+  scale: 4;
+}
+
+.center {
+  // .flex_center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+img {
+  .full;
+}
+
+.fit-layout-inner {
+}
+
+.fcenter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.frc {
+  display: flex;
+  justify-content: center;
+}
+.fcc {
+  display: flex;
+  align-items: center;
+}
+
+.fccenter {
+  display: flex;
+  align-items: center;
+}
+
+.fc {
+  .fcenter;
+}
+.poa_center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.poa_t_center {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.poa_l_center {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.cup {
+  cursor: pointer;
+}
+
+.one_line {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  word-break: break-all;
+  white-space: nowrap;
+}
+
+.mask {
+  .full;
+  position: fixed;
+  left: 0;
+  top: 0;
+}
+
+.box {
+  padding: 10px;
+  border-radius: 8px;
+  background-color: #fff;
+}
+
+.iconfont {
+  font-size: 1.2rem;
+}
+
+.f3_7 {
+  display: flex;
+  div:first-child {
+    flex: 3;
+  }
+  div:last-child {
+    flex: 7;
+  }
+}
