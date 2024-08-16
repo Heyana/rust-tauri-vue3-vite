@@ -4,7 +4,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "vite",
+    "dev": "tauri dev",
     "build": "vue-tsc --noEmit && vite build",
     "vite:dev": "vite dev",
     "vite:build": "vite build",
@@ -17,9 +17,7 @@
   },
   "dependencies": {
     "@allex/md5": "^1.0.4",
-    "@tauri-apps/api": "^2.0.0-rc.0",
-    "@tauri-apps/plugin-shell": "^2.0.0-rc.0",
-    "@tauri-apps/plugin-store": "^2.0.0-rc.0",
+    "@tauri-apps/api": "^1.5.1",
     "@vicons/ionicons5": "^0.12.0",
     "@vicons/material": "^0.12.0",
     "@vueuse/core": "^10.11.1",
@@ -28,13 +26,11 @@
     "less": "3.5.0",
     "less-loader": "7.0.0",
     "pinia": "^2.2.1",
-    "tauriv2-vue-desktop-starter": "file:",
-    "vue": "^3.4.37",
-    "vue-router": "^4.4.3"
+    "tauriv2-vue-desktop-starter": "file:"
   },
   "devDependencies": {
     "@iconify/vue": "^4.1.2",
-    "@tauri-apps/cli": "2.0.0-rc.3",
+    "@tauri-apps/cli": "^1.5.6",
     "@types/node": "^22.1.0",
     "@vitejs/plugin-vue": "^5.1.2",
     "@vitejs/plugin-vue-jsx": "^1.1.3",
