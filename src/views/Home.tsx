@@ -65,6 +65,9 @@ const com = () => (
               quality: 80,
             }),
           });
+          downloadFile(
+            new Blob ([new Uint8Array(ins.refData.value.data)]),'res.zip'
+          )
 
           console.log(
             "Log-- ",

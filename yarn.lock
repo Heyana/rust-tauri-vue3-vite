@@ -741,7 +741,7 @@
     "@sentry/types" "5.30.0"
     tslib "^1.9.3"
 
-"@tauri-apps/api@^1.5.1":
+"@tauri-apps/api@^1.6.0":
   version "1.6.0"
   resolved "https://registry.npmjs.org/@tauri-apps/api/-/api-1.6.0.tgz"
   integrity sha512-rqI++FWClU5I2UBp4HXFvl+sBWkdigBkxnpJDQUWttNyG7IZP4FwQGhTNL5EOw0vI8i6eSAJ5frLqO7n7jbJdg==
@@ -796,7 +796,7 @@
   resolved "https://registry.npmjs.org/@tauri-apps/cli-win32-x64-msvc/-/cli-win32-x64-msvc-1.6.0.tgz"
   integrity sha512-h54FHOvGi7+LIfRchzgZYSCHB1HDlP599vWXQQJ/XnwJY+6Rwr2E5bOe/EhqoG8rbGkfK0xX3KPAvXPbUlmggg==
 
-"@tauri-apps/cli@^1.5.6":
+"@tauri-apps/cli@^1.6.0":
   version "1.6.0"
   resolved "https://registry.npmjs.org/@tauri-apps/cli/-/cli-1.6.0.tgz"
   integrity sha512-DBBpBl6GhTzm8ImMbKkfaZ4fDTykWrC7Q5OXP4XqD91recmDEn2LExuvuiiS3HYe7uP8Eb5B9NPHhqJb+Zo7qQ==
@@ -2600,7 +2600,7 @@ svg-tags@^1.0.0:
   version "0.1.0"
   dependencies:
     "@allex/md5" "^1.0.4"
-    "@tauri-apps/api" "^1.5.1"
+    "@tauri-apps/api" "^1.6.0"
     "@vicons/ionicons5" "^0.12.0"
     "@vicons/material" "^0.12.0"
     "@vueuse/core" "^10.11.1"
@@ -2609,7 +2609,7 @@ svg-tags@^1.0.0:
     less "3.5.0"
     less-loader "7.0.0"
     pinia "^2.2.1"
-    tauriv2-vue-desktop-starter "file:C:/Users/hy/AppData/Local/Yarn/Cache/v6/npm-tauriv2-vue-desktop-starter-0.1.0-eaa29f99-a875-4a3e-9104-6fe8addea238-1723797199009/node_modules/tauriv2-vue-desktop-starter"
+    tauriv2-vue-desktop-starter "file:C:/Users/hy/AppData/Local/Yarn/Cache/v6/npm-tauriv2-vue-desktop-starter-0.1.0-64e9d468-b1f8-420e-95e2-27912c64693b-1723876456095/node_modules/tauriv2-vue-desktop-starter"
 
 thenify-all@^1.0.0:
   version "1.6.0"

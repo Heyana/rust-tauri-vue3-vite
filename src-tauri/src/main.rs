@@ -3,26 +3,19 @@
 
 use serde::{Deserialize, Serialize};
 use serde_json;
-use std::{
-    env,
-    fs::{self, File},
-    io,
-    os::{self, windows::thread},
-    path::Path,
-};
+use std::env;
 
 mod utils;
 #[tauri::command]
-fn test_magick(json: String) -> Result<String, String> {
+fn test_magick(json: String) -> Result<Vec<u8>, String> {
     println!("test_magick called with json: {}", json);
     // 解析 JSON 字符串
     let data: MyData = serde_json::from_str(&json).map_err(|e| e.to_string())?;
-    let res = utils::image_magick::image_magick_convert(&data).unwrap();
+    let res = utils::image_magick::image_magick_convert_tokio(&data).unwrap();
 
-    println!("ImageMagick result: {}", res);
+    println!("ImageMagick result: {}", res.len());
     // 打印解析后的数据
-    println!("Parsed JSON data: {:?}", data);
-    Ok(String::from("test_magick success"))
+    Ok(res)
 }
 
 // 定义一个数据结构，用于解析 JSON 数据
