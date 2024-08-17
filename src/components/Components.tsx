@@ -169,6 +169,7 @@ export const UploadArea = defineComponent({
       const input = ref(null);
       return (
         <div
+
           class="upload_area"
           onDragover={(e) => {
             e.preventDefault();
@@ -176,6 +177,8 @@ export const UploadArea = defineComponent({
           }}
           onDrop={(e) => {
             e.preventDefault();
+            
+
 
             const files = getFilesByDataTransfer(e.dataTransfer);
             props.fileChanged(files || []);

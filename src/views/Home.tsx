@@ -13,11 +13,33 @@ import { toZip } from "../utils/zip";
 import "./style/home.less";
 import * as api from "@tauri-apps/api";
 import path from "path";
+import { appWindow } from "@tauri-apps/api/window";
+import { listen } from "@tauri-apps/api/event";
 
 export default defineComponent({
   name: "home",
   setup: () => () => com(),
   async mounted() {
+    const unlisten = await appWindow.onFileDropEvent((event) => {
+      if (event.payload.type === "hover") {
+        console.log("User hovering", event.payload.paths);
+      } else if (event.payload.type === "drop") {
+        console.log("User dropped", event.payload.paths);
+      } else {
+        console.log("File drop cancelled");
+      }
+    });
+    listen("tauri://file-drop", (event) => {
+      console.log(event);
+    });
+
+    listen("tauri://file-drop-hover", (e) => {
+      console.log("Log-- ", e, "e");
+      // ...
+    });
+
+    // you need to call unlisten if your handler goes out of scope e.g. the component is unmounted
+    unlisten();
     // const path = 'C:\\Users\\hy\\Downloads\\点位弹窗_2.gif';
     // const res = await http.post('image/gifToApng', {
     //   url: path
@@ -66,8 +88,9 @@ const com = () => (
             }),
           });
           downloadFile(
-            new Blob ([new Uint8Array(ins.refData.value.data)]),'res.zip'
-          )
+            new Blob([new Uint8Array(ins.refData.value.data)]),
+            "res.zip"
+          );
 
           console.log(
             "Log-- ",
