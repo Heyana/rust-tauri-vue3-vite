@@ -119,6 +119,6 @@ export const imageKey = "image";
 export const glbKey = "glb";
 export const videoKey = "video";
 
-export const imageFormats = ["png", "heic", "webp", "jpg", "jpeg"];
+export const imageFormats = ["png", "heic", "webp", "jpg", "jpeg", "tga"];
 
 export const deviceTypes = ["action2", "pocket3"] as const;

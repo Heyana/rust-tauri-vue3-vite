@@ -4,6 +4,7 @@ use anyhow::Result;
 use std::{
     fs::File,
     io::{Cursor, Read, Write},
+    os::windows::process::CommandExt,
     path::Path,
     sync::Arc,
     thread, vec,
@@ -162,7 +163,8 @@ fn convert_file(
     let newpathstr = newpath.to_str()?;
 
     let mut cmd = std::process::Command::new(magick_path);
-    cmd.args([&file, "-quality", &quality.to_string(), newpathstr]);
+    cmd.args([&file, "-quality", &quality.to_string(), newpathstr])
+        .creation_flags(0x08000000);
 
     let output = cmd.spawn().ok()?.wait().ok()?;
 
